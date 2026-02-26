@@ -36,6 +36,7 @@ const TypingButton = styled.button`
   padding: 10px 20px;
   margin-top: 20px;
   cursor: pointer;
+  font-weight: 700; // Bold
   animation: ${typing} 1.2s infinite;
 `;
 
@@ -45,10 +46,10 @@ function App() {
   return (
     <div>
         <Layout>
-          테스트
+          <div style={{ fontFamily : "HealthsetGothic",  fontWeight : "500"}}>테스트(TEST)(test)</div>
           <div style={{ padding: "50px", textAlign: "center" }}>
         <FadeInText>Hello, Styled Components!</FadeInText>
-        <TypingButton>Click Me</TypingButton>
+        <TypingButton>클릭</TypingButton>
       </div>
         </Layout>
       
