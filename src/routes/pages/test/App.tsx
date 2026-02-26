@@ -1,5 +1,4 @@
 import Layout from "@/components/Layout/Layout";
-import React from "react";
 import styled, { keyframes } from "styled-components";
 
 // 이미 정의된 애니메이션
