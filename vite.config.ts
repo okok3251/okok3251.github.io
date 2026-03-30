@@ -15,7 +15,7 @@ export default defineConfig({
     emptyOutDir: true, // 기존 파일 지우기
   },
   server: {
-    host : '172.22.22.30',
+    host : 'localhost',
     port: 3000,
   }
 })

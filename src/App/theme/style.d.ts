@@ -7,6 +7,10 @@ declare module "styled-components" {
             background: string;
             text: string;
             border: string;
+            heroText: string;
+        };
+        hero: {
+            gradient: string;
         };
         shadows: {
             small: string;

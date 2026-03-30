@@ -1,28 +1,21 @@
 import React from "react";
 import * as H from "@/components/Header/Header.style"
-import Switch from "./Switch";
 
-interface HeaderProps {
-        isDarkMode : boolean;
-        onToggleTheme : () => void;
-    }
-
-
-const Header : React.FC<HeaderProps> = ({
-    isDarkMode,
-    onToggleTheme,
-} : HeaderProps) => {
-
-    
+const Header : React.FC = () => {
     return(
         <H.HeaderContainer>
-            <H.HeaderInfo>
-            <H.BotInfo>
-            </H.BotInfo>
-        </H.HeaderInfo>
-        <H.HeaderActions>
-            <Switch checked={isDarkMode} onChange={onToggleTheme}></Switch>
-        </H.HeaderActions>
+            <H.Inner>
+                <H.Brand to="/">
+                    <H.BrandText></H.BrandText>
+                </H.Brand>
+
+                <H.Nav>
+                    <H.NavLink to="/">HOME</H.NavLink>
+                    <H.NavLink to="/about">ABOUT</H.NavLink>
+                    <H.NavLink to="/blog">BLOG</H.NavLink>
+                    <H.NavLink to="/portfolio">PORTFOLIO</H.NavLink>
+                </H.Nav>
+            </H.Inner>
         </H.HeaderContainer>
     );
 }

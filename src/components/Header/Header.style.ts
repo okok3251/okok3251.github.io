@@ -1,111 +1,76 @@
+import { Link, NavLink as RouterNavLink } from "react-router-dom";
 import styled from "styled-components"
 
 
 export const HeaderContainer = styled.header`
-    padding : 1rem 1.5rem;
-    display : flex;
-    justify-content : space-between;
-    align-items : center;
-    position : sticky;
-    top : 0;
-    z-index : 100;
-    border-bottom: 1px solid #9c9c9c
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 1.7rem 0;
+  color: #f5f2f7;
+  background: linear-gradient(180deg, rgba(22, 18, 40, 0.74), rgba(22, 18, 40, 0));
+  backdrop-filter: blur(14px);
 `;
 
-export const HeaderInfo = styled.div`
+export const Inner = styled.div`
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  padding: 0 2rem;
   display: flex;
   align-items: center;
-  gap: ${props => props.theme.fontSizes.md};
+  justify-content: space-between;
+  gap: 1.2rem;
+
+  @media (max-width: 900px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 
-export const Avatar = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+export const Brand = styled(Link)`
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: ${props => props.theme.fontSizes.lg};
-  color: ${props => props.theme.colors.text};
+  gap: 0.6rem;
 `;
 
-export const BotInfo = styled.div`
-  display: flex;
-  flex-direction: column;
+
+export const BrandText = styled.span`
+  font-size: 1.3rem;
+  font-weight: ${({ theme }) => theme.fontWeights.extraBold};
+  letter-spacing: -0.04em;
 `;
 
-export const BotName = styled.h3`
-  font-size: ${props => props.theme.fontSizes.md};
-  font-weight: 600;
-  color: ${props => props.theme.colors.text};
-`;
-
-export const BotStatus = styled.span`
-  font-size: ${props => props.theme.fontSizes.sm};
-  color: green;
-`;
-
-export const HeaderActions = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items : center;
-  gap: 0.5rem;
-`;
-
-export const DeleteButton = styled.button`
-  position: relative;
-  padding: 0.5em;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 1em;
-  transition: transform 0.2s ease;
-
-  &:hover svg {
-    transform: scale(1.08) rotate(3deg);
-  }
-
-  &:active svg {
-    transform: scale(0.96) rotate(-1deg);
-  }
-
-  &:hover g#lid-group {
-    transform: rotate(-28deg) translateY(2px);
-  }
-
-  &:active g#lid-group {
-    transform: rotate(-12deg) scale(0.98);
-  }
-`;
-
-export const TrashSVG = styled.svg`
-  width: 1.8em;
-  height: 1.8em;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-  overflow: visible;
-`;
-
-export const LidGroup = styled.g`
-  transform-origin: 12 18;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-`;
-
-export const TrashRect = styled.rect``;
-
-
-export const IconButton = styled.button`
-  background: transparent;
-  border: none;
-  padding: 0.5rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
+export const Nav = styled.nav`
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: clamp(0.45rem, 1vw, 1rem);
+
+  @media (max-width: 900px) {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+`;
+
+export const NavLink = styled(RouterNavLink)`
+  font-size: clamp(0.76rem, 0.88vw, 0.92rem);
+  padding: 0.24rem 0.72rem;
+  border-radius: 999px;
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  letter-spacing: -0.02em;
+  opacity: 0.72;
+  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 
   &:hover {
-    color: ${props => props.theme.colors.text};
+    opacity: 1;
+  }
+
+  &.active {
+    opacity: 1;
+    background: #f6f3f7;
+    color: #2a2441;
   }
 `;
-

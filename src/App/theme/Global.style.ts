@@ -14,8 +14,6 @@ export const bounce = keyframes`
 
 // 글로벌 스타일
 export const GlobalStyle = createGlobalStyle<{theme : DefaultTheme}>`
-  /* Gmarket Sans @font-face 설정 */
-
   @font-face {
     font-family: 'GMarketSans';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
@@ -46,7 +44,12 @@ export const GlobalStyle = createGlobalStyle<{theme : DefaultTheme}>`
   :root {
     --bg-color : ${({theme}) => theme.colors.background};
     --text-color : ${({theme}) => theme.colors.text};
+    --border-color : ${({theme}) => theme.colors.border};
   }  
+
+  html {
+    scroll-behavior: smooth;
+  }
 
   * {
     margin: 0;
@@ -57,8 +60,22 @@ export const GlobalStyle = createGlobalStyle<{theme : DefaultTheme}>`
   body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'Gmarket Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-family: 'GMarketSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     transition: background-color 0.2s ease, color 0.2s ease;
+    min-height: 100dvh;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
   }
 
   ::-webkit-scrollbar {
